@@ -3,7 +3,7 @@
 return {
   "ray-x/lsp_signature.nvim",
   lazy = true,
-  event = { "LspAttach" },
+  event = { "BufEnter" },
   config = function()
     require("lsp_signature").setup {
       doc_lines = 10, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
