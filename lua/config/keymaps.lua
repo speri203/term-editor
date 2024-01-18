@@ -19,3 +19,18 @@ map("n", "i", function()
     return "i"
   end
 end, { expr = true, desc = "properly indent on empty line when insert" })
+
+-- Moving to the beginning and end of line without using numbers or symbols
+map({ "n" }, "<leader>lb", "^", { desc = "Moves to the beginning of the line" })
+map({ "n" }, "<leader>le", "$", { desc = "Move to the end of the line" })
+
+-- Remapping the Lazy plugin window to leader lv
+map({ "n" }, "<leader>lv", "<cmd>Lazy<Cr>", { desc = "Opens lazyvim plugin menu" })
+
+-- Coverting word under cursor to upper and lower case
+map({ "n" }, "<leader>wu", "<esc>mzgUiw`za<esc>", { desc = "Makes the current word under cursor into uppercase" })
+map({ "n" }, "<leader>wl", "<esc>mzguiw`za<esc>", { desc = "Makes the current word under cursor into lowercase" })
+
+-- Quickly saving and exiting a file
+map({ "n" }, "<leader>sf", "<cmd>:w<cr>", { desc = "Saving a file" })
+map({ "n" }, "<leader>sq", "<cmd>:q<cr>", { desc = "Exiting a file" })
