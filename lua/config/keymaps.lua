@@ -21,11 +21,18 @@ map("n", "i", function()
 end, { expr = true, desc = "properly indent on empty line when insert" })
 
 -- Moving to the beginning and end of line without using numbers or symbols
-map({ "n" }, "<leader>lb", "^", { desc = "Moves to the beginning of the line" })
-map({ "n" }, "<leader>le", "$", { desc = "Move to the end of the line" })
+map({ "n" }, "H", "^", { desc = "Moves to the beginning of the line" })
+map({ "n" }, "L", "$", { desc = "Move to the end of the line" })
+
+-- Copying content from the location of cursor to end of line. Alternative to yy which copies the whole line
+map({ "n" }, "Y", "y$", { desc = "Copy content from cursor position to end of the line" })
+
+-- Remapping semi colon to colon to enter command mode easier
+map({ "n" }, ";", ":", { desc = "Easier entry into command mode" })
 
 -- Remapping the Lazy plugin window to leader lv
-map({ "n" }, "<leader>lv", "<cmd>Lazy<Cr>", { desc = "Opens lazyvim plugin menu" })
+-- Not needed because I remapped the beginning and end of line to H and L
+-- map({ "n" }, "<leader>lv", "<cmd>Lazy<Cr>", { desc = "Opens lazyvim plugin menu" })
 
 -- Coverting word under cursor to upper and lower case
 map({ "n" }, "<leader>wu", "<esc>mzgUiw`za<esc>", { desc = "Makes the current word under cursor into uppercase" })
@@ -34,3 +41,6 @@ map({ "n" }, "<leader>wl", "<esc>mzguiw`za<esc>", { desc = "Makes the current wo
 -- Quickly saving and exiting a file
 map({ "n" }, "<leader>sf", "<cmd>:w<cr>", { desc = "Saving a file" })
 map({ "n" }, "<leader>sq", "<cmd>:q<cr>", { desc = "Exiting a file" })
+
+-- Javascript specific remapping that I am not sure I will utilize but would be nice to have
+map({ "i" }, "<C-l>", "<space>=><space>", { desc = "Javascript specific remapping for =>" })
