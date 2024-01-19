@@ -42,6 +42,18 @@ return {
     local defaults = require("cmp.config.default")()
     local compare = require("cmp.config.compare")
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#8ec07c", bg = "#242424" })
+
+    --- Code to fetch package name from which lsp suggestions are coming from
+    ---@param entry cmp.Entry
+    ---@return string|nil
+    local function get_python_import(entry)
+      local cmp_item = entry:get_completion_item()                  --- @type lsp.CompletionItem
+      if cmp_item.detail == "Auto-import" then
+        return (cmp_item.labelDetails or {}).description or '[LSP]' -- pyright-specific (undocumented)
+      end
+      return nil                                                    -- no information, possibly not auto-import symbol
+    end
+
     return {
       view = {
         entries = { name = "custom", selection_order = "near_cursor" },
@@ -104,7 +116,7 @@ return {
           item.abbr = ("%s "):format(item.abbr)
           item.kind = string.format("%s", icons[item.kind], item.kind)
           item.menu = ({
-            nvim_lsp = "[LSP]",
+            nvim_lsp = get_python_import(entry),
             luasnip = "[LuaSnip]",
             nvim_lua = "[API]",
             path = "[Path]",
