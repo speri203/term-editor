@@ -23,7 +23,8 @@ end, { expr = true, desc = "properly indent on empty line when insert" })
 -- Moving to the beginning and end of line without using numbers or symbols
 map({ "n" }, "H", "^", { desc = "Moves to the beginning of the line" })
 map({ "n" }, "L", "$", { desc = "Move to the end of the line" })
-
+map({ "v" }, "H", "^", { desc = "Moves to the beginning of the line" })
+map({ "v" }, "L", "$", { desc = "Move to the end of the line" })
 -- Copying content from the location of cursor to end of line. Alternative to yy which copies the whole line
 map({ "n" }, "Y", "y$", { desc = "Copy content from cursor position to end of the line" })
 
