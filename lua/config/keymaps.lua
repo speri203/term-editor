@@ -42,5 +42,35 @@ map({ "n" }, "<leader>wl", "<esc>mzguiw`za<esc>", { desc = "Makes the current wo
 map({ "n" }, "<leader>sf", "<cmd>:w<cr>", { desc = "Saving a file" })
 map({ "n" }, "<leader>sq", "<cmd>:q<cr>", { desc = "Exiting a file" })
 
+-- Movements for moving down page or search result and centering the window
+
+map("n",
+  "<C-d>",
+  "<C-d>zz",
+  { desc = "Jump down half page with cursor centered" })
+map("n",
+  "<C-u>",
+  "<C-u>zz",
+  { desc = "Jump up half page with cursor centered" })
+map("n",
+  "n",
+  "nzzzv",
+  { desc = "Jump to next search result with cursor centered" })
+map("n",
+  "N",
+  "Nzzzv",
+  { desc = "Jump to previous search result with cursor centered" })
+map(
+  "v",
+  ">",
+  ">gv",
+  { desc = "Increment Indentation of visual selection" }
+)
+map(
+  "v",
+  "<",
+  "<gv",
+  { desc = "Decrement Indentation of visual selection" })
+
 -- Javascript specific remapping that I am not sure I will utilize but would be nice to have
-map({ "i" }, "<C-l>", "<space>=><space>", { desc = "Javascript specific remapping for =>" })
+map({ "i" }, "<C-a>", "<space>=><space>", { desc = "Javascript specific remapping for =>" })
