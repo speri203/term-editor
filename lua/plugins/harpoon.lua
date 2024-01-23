@@ -24,7 +24,7 @@ return {
     require("harpoon"):setup()
   end,
   keys = {
-    { "<leader>hm", function() require("harpoon"):list():append() end,                   desc = "harpoon file", },
+    { "<leader>hm", function() require("harpoon"):list():append() end,                     desc = "harpoon file", },
     {
       "<leader>ha",
       function()
@@ -34,10 +34,10 @@ return {
       desc = "harpoon quick menu",
     },
     -- Toggle previous & next buffers stored within Harpoon list
-    { "<leader>hn", function() require("harpoon"):list():next({ ui_nav_wrap = true }) end, desc = "Harpoon next file", },
-    { "<leader>hp", function() require("harpoon"):list():prev({ ui_nav_wrap = true }) end, desc = "Harpoon previous file", },
-    { "<leader>hr", function() require("harpoon"):list():remove() end,                   desc = "Removes current marker from list", },
-    { "<leader>hl", function() toggle_telescope(require("harpoon"):list()) end,          desc = "Displays markers using Telescope", },
+    { "<C-b>",      function() require("harpoon"):list():next({ ui_nav_wrap = true }) end, desc = "Harpoon next file", },
+    { "<C-x>",      function() require("harpoon"):list():prev({ ui_nav_wrap = true }) end, desc = "Harpoon previous file", },
+    { "<leader>hr", function() require("harpoon"):list():remove() end,                     desc = "Removes current marker from list", },
+    { "<leader>hl", function() toggle_telescope(require("harpoon"):list()) end,            desc = "Displays markers using Telescope", },
     -- { "<leader>3",  function() require("harpoon"):list():select(3) end, desc = "harpoon to file 3", },
     -- { "<leader>4",  function() require("harpoon"):list():select(4) end, desc = "harpoon to file 4", },
     -- { "<leader>5",  function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5", },
