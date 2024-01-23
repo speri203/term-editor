@@ -75,3 +75,7 @@ map(
 
 -- Javascript specific remapping that I am not sure I will utilize but would be nice to have
 map({ "i" }, "<C-a>", "<space>=><space>", { desc = "Javascript specific remapping for =>" })
+
+-- Treesitter context toggle for large files to improve performance
+map({ "n" }, "<leader>ts", "<cmd>require('treesitter-context').toggle()<cr>",
+  { desc = "Toggle treesitter context off/on" })
