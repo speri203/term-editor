@@ -1,5 +1,12 @@
 return {
   "nvim-telescope/telescope.nvim",
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules/.*",
+      ".git/.*",
+      ".venv/.*",
+    },
+  },
   keys = {
     -- disable the keymap to grep files
     { "<leader>/",  false },
@@ -15,4 +22,5 @@ return {
       desc = "Find Plugin File",
     },
   },
+  -- require("telescope").load_extension("noice")
 }

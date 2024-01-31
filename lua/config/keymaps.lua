@@ -5,6 +5,10 @@
 local map = vim.keymap.set
 local del = vim.keymap.del
 
+
+-- Prevents the 0 register from being overwritten when pasting content in visual mode
+map({ "v" }, "p", "P", { noremap = true })
+
 -- Displaying WhichKey in visual mode hightlight
 map({ "v" }, "<leader>", "<cmd>:WhichKey <leader> v<cr>", { desc = "Whichkey menu in visual mode" })
 
@@ -21,10 +25,10 @@ map("n", "i", function()
 end, { expr = true, desc = "properly indent on empty line when insert" })
 
 -- Moving to the beginning and end of line without using numbers or symbols
-map({ "n" }, "H", "^", { desc = "Moves to the beginning of the line" })
-map({ "n" }, "L", "$", { desc = "Move to the end of the line" })
-map({ "v" }, "H", "^", { desc = "Moves to the beginning of the line" })
-map({ "v" }, "L", "$", { desc = "Move to the end of the line" })
+map({ "n" }, "gh", "^", { desc = "Moves to the beginning of the line" })
+map({ "n" }, "gl", "$", { desc = "Move to the end of the line" })
+map({ "v" }, "gh", "^", { desc = "Moves to the beginning of the line" })
+map({ "v" }, "gl", "$", { desc = "Move to the end of the line" })
 -- Copying content from the location of cursor to end of line. Alternative to yy which copies the whole line
 map({ "n" }, "Y", "y$", { desc = "Copy content from cursor position to end of the line" })
 
@@ -37,7 +41,7 @@ map({ "n" }, ";", ":", { desc = "Easier entry into command mode" })
 
 -- Coverting word under cursor to upper and lower case
 map({ "n" }, "<leader>wu", "<esc>mzgUiw`za<esc>", { desc = "Makes the current word under cursor into uppercase" })
-map({ "n" }, "<leader>wl", "<esc>mzguiw`za<esc>", { desc = "Makes the current word under cursor into lowercase" })
+map({ "n" }, "<leader>wu", "<esc>mzgUiw`za<esc>", { desc = "Makes the current word under cursor into uppercase" })
 
 -- Quickly saving and exiting a file
 map({ "n" }, "<leader>sf", "<cmd>:w<cr>", { desc = "Saving a file" })
@@ -79,3 +83,6 @@ map({ "i" }, "<C-a>", "<space>=><space>", { desc = "Javascript specific remappin
 -- Treesitter context toggle for large files to improve performance
 map({ "n" }, "<leader>ts", "<cmd>require('treesitter-context').toggle()<cr>",
   { desc = "Toggle treesitter context off/on" })
+
+-- Dismiss Noice notifications
+map({ "n" }, "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss Noice notifications" })

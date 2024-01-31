@@ -117,6 +117,7 @@ return {
           item.kind = string.format("%s", icons[item.kind], item.kind)
           item.menu = ({
             nvim_lsp = "[LSP]", --get_python_import(entry),
+            -- nvim_lsp = get_python_import(entry),
             luasnip = "[LuaSnip]",
             nvim_lua = "[API]",
             path = "[Path]",
