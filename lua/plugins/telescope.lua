@@ -22,5 +22,4 @@ return {
       desc = "Find Plugin File",
     },
   },
-  -- require("telescope").load_extension("noice")
 }
