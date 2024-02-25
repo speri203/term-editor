@@ -86,3 +86,6 @@ map({ "n" }, "<leader>ts", "<cmd>require('treesitter-context').toggle()<cr>",
 
 -- Dismiss Noice notifications
 map({ "n" }, "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss Noice notifications" })
+
+-- Jump back to previous location (useful for going back from gd)
+map({ "n" }, "gb", "<C-o>", { desc = "Goto recent entry in jumplist" })
