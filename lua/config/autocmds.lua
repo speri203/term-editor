@@ -9,3 +9,18 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+
+local cmd = vim.api.nvim_create_user_command
+
+-- Change working directory
+cmd("Cwd", function()
+  vim.cmd ":cd %:p:h"
+  vim.cmd ":pwd"
+end, { desc = "cd current file's directory" })
+
+-- Set working directory (alias)
+cmd("Swd", function()
+  vim.cmd ":cd %:p:h"
+  vim.cmd ":pwd"
+end, { desc = "cd current file's directory" })
